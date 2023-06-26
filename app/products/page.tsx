@@ -1,29 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { products } from '../database/skate';
+import { getproducts } from '../../database/products';
 
 export const metadata = {
   title: 'products page',
   description: 'all the contacts',
 };
 
-export default function ProductsPage() {
+export default async function Productspage() {
+  const products = await getproducts();
   return (
     <main>
-      saktes
       {products.map((product) => {
         return (
-          <div className="shoe" key={`product-div-${product.id}`}>
-            <br />
-
-            <Link href={`/products/${product.id}`}>{product.name}</Link>
-            <br />
+          <main key={`product-div-${product.id}`}>
+            <Link href={`/products/${product.id}`}>{product.name} </Link>
             <Image
               src={`/images/${product.name}.jpg`}
               width={150}
               height={150}
+              alt="test"
             />
-          </div>
+          </main>
         );
       })}
     </main>

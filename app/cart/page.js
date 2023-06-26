@@ -1,26 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { getproducts } from '../../database/products';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
-import { getProductsById, products } from '../database/skate';
 
-export default function CartPage() {
+export default async function CartPage() {
+  const products = await getproducts();
+
   // This is what we want when using cookies
   const productCookie = getCookie('cart');
 
   const productCookieQuantity = !productCookie ? [] : parseJson(productCookie);
+  console.log('milad', productCookieQuantity);
   const productQuantity = productCookieQuantity.map((product) => {
+    console.log('alex', product);
     const matchingProductFromCookie = products.find(
       (productObject) => product.id === productObject.id,
     );
     console.log('viktor', matchingProductFromCookie);
-    console.log('birthday', {
-      ...product,
-      quantity: matchingProductFromCookie?.quantity,
-    });
-    return { ...product, quantity: matchingProductFromCookie?.quantity };
+    //return { ...product, quantity: matchingProductFromCookie?.quantity };
+    return { ...matchingProductFromCookie, quantity: product?.quantity };
   });
-  console.log('Products', productQuantity);
 
   return (
     <div>
