@@ -2,7 +2,7 @@ import { cache } from 'react';
 import { Productsmigration } from '../migrations/1687784384-createTableproducts';
 import { sql } from './connect';
 
-export const getproducts = cache(async () => {
+export const getProducts = cache(async () => {
   const products = await sql<Productsmigration[]>`
  SELECT * FROM products;
   `;

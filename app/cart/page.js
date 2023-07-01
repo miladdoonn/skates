@@ -1,49 +1,86 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getproducts } from '../../database/products';
-import { getCookie } from '../../util/cookies';
-import { parseJson } from '../../util/json';
+// import Link from 'next/link';
+import { getProducts } from '../../database/products';
+import { combineData } from '../functions/combineData';
+import { getQuantity } from '../products/[productsId]/actions';
+import ChangeQuantityItem from './ChangeQuantityItem';
+import DeleteItems from './DeleteItems';
+import styles from './page.module.scss';
+
+export const metadata = {
+  title: 'Dreams',
+  description: 'Enter the world of new dreams',
+};
 
 export default async function CartPage() {
-  const products = await getproducts();
+  const productQuantity = await getQuantity();
+  const products = await getProducts();
 
-  // This is what we want when using cookies
-  const productCookie = getCookie('cart');
+  const productInCart = combineData(productQuantity, products);
 
-  const productCookieQuantity = !productCookie ? [] : parseJson(productCookie);
-  console.log('milad', productCookieQuantity);
-  const productQuantity = productCookieQuantity.map((product) => {
-    console.log('alex', product);
-    const matchingProductFromCookie = products.find(
-      (productObject) => product.id === productObject.id,
+  function calculateTotalPrice() {
+    return productInCart.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0,
     );
-    console.log('viktor', matchingProductFromCookie);
-    //return { ...product, quantity: matchingProductFromCookie?.quantity };
-    return { ...matchingProductFromCookie, quantity: product?.quantity };
-  });
+  }
+  let subTotalProductPrice = 0;
 
-  return (
-    <div>
-      {productQuantity.map((product) => {
-        console.log('singleproduct', product);
-        return (
-          <div key={`products-${product.id}`}>
-            <h1>h</h1>
-            <h3>{product.price}</h3>
-            {product.quantity}
-            <Link href={`/categories/${product.id}`}>
-              {product.productName}
-            </Link>
-            <br />
-            <Image
-              alt={products.productName}
-              src={`/images/${product.name}.jpg`}
-              width={150}
-              height={150}
-            />
+  if (productInCart.length === 0) {
+    return <h6 className={styles.emptyCart}>The cart is empty</h6>;
+  } else {
+    return (
+      <main>
+        <section
+          className={styles.cartPage}
+          data-test-id="cart-product-quantity-<product id>"
+        >
+          {productInCart.map((product) => {
+            subTotalProductPrice = product.quantity * product.price;
+
+            return (
+              <div key={`product-${product.id}`} className={styles.productCart}>
+                <Image
+                  alt=""
+                  src={`/images/${product.name}.jpg`}
+                  width={120}
+                  height={250}
+                />
+                <div>Name: {product.name}</div>
+                <div>Price: {product.price}</div>
+                <div>Subtotal price: {subTotalProductPrice}</div>
+
+                {/* <div>{product.totalQuantity}</div> */}
+                <form>
+                  <ChangeQuantityItem
+                    product={product}
+                    data-test-id="cart-product-quantity-<product id>"
+                  />
+                </form>
+
+                <form>
+                  <DeleteItems
+                    product={product}
+                    data-test-id="cart-product-remove-<product id>"
+                  />
+                </form>
+              </div>
+            );
+          })}
+          <div>
+            Total price:
+            <span data-test-id="cart-total">{calculateTotalPrice()}</span>
           </div>
-        );
-      })}
-    </div>
-  );
+          <Link
+            className={styles.link}
+            href="/cart/checkout/"
+            data-test-id="cart-checkout"
+          >
+            Checkout!
+          </Link>
+        </section>
+      </main>
+    );
+  }
 }

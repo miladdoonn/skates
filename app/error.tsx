@@ -1,5 +1,5 @@
 'use client';
 
 export default function RootError() {
-  return <main>ups something went wrong</main>;
+  return <div>Ups! something went wrong</div>;
 }

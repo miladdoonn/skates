@@ -1,6 +1,10 @@
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import styles from './page.Module.scss';
 
 export default function Home() {
-  return <header className={styles.header}> </header>;
+  return (
+    <main>
+      <h1 className={styles.landingText}>Welcome to the store</h1>
+    </main>
+  );
 }

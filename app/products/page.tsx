@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { getproducts } from '../../database/products';
+import { getProducts } from '../../database/products';
+import styles from './page.module.scss';
 
 export const metadata = {
   title: 'products page',
@@ -8,22 +9,32 @@ export const metadata = {
 };
 
 export default async function Productspage() {
-  const products = await getproducts();
+  const products = await getProducts();
   return (
-    <main>
-      {products.map((product) => {
-        return (
-          <main key={`product-div-${product.id}`}>
-            <Link href={`/products/${product.id}`}>{product.name} </Link>
-            <Image
-              src={`/images/${product.name}.jpg`}
-              width={150}
-              height={150}
-              alt="test"
-            />
-          </main>
-        );
-      })}
+    <main className={styles.main}>
+      <h1 className={styles.titel}>Choose your favorite skateboard</h1>
+      <section className={styles.productsContainer}>
+        {products.map((product) => {
+          return (
+            <div key={`product-div-${product.id}`}>
+              <Link
+                data-test-id={`product-${product.id}`}
+                href={`/products/${product.id}`}
+              >
+                {' '}
+                <Image
+                  src={`/images/${product.name}.jpg`}
+                  width={150}
+                  height={150}
+                  alt="test"
+                />
+              </Link>
+              <br />
+              <Link href={`/products/${product.id}`}>{product.name}</Link>
+            </div>
+          );
+        })}
+      </section>
     </main>
   );
 }

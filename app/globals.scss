@@ -1,4 +1,12 @@
-* {
-  background-color: rgb(219, 219, 219);
-  color: black;
+*,
+::before,
+::after {
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(244, 234, 234);
 }
