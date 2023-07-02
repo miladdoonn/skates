@@ -1,31 +1,13 @@
-@media (max-width: 979px) {
-  .body {
-    padding-top: 0px;
-  }
-}
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-.footer {
-  max-width: 280px;
-
-  right: 10%;
-  bottom: 0;
-}
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #dddee8;
+  background-color: #4c4d52;
   color: #000000;
-  text-align: center;
-  align-items: center;
+  text-align: left;
+  align-items: left;
   justify-content: flex-start;
-  padding: 15px;
+  padding: 0px;
 }
 
 .navbar {

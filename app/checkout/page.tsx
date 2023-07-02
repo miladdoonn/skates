@@ -1,7 +1,7 @@
 import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './checkout.module.scss';
+import styles from './ceckout.module.scss';
 
 export default function CheckoutPage() {
   return (

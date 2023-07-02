@@ -31,12 +31,12 @@ export default function RootLayout({ children }: LayoutProps) {
                 </Link>
               </li>
               <li>
-                <Link className="link2" href="/login">
+                <Link className="link2" href="/auth/login">
                   login
                 </Link>
               </li>
               <li>
-                <Link className="link2" href="/register">
+                <Link className="link2" href="/auth/register">
                   register
                 </Link>
               </li>
@@ -48,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps) {
             </ul>
           </nav>
         </header>
+        {children}
         <footer>
           <section className={styles.footer}>
             <div>
@@ -68,8 +69,6 @@ export default function RootLayout({ children }: LayoutProps) {
             </div>
           </section>
         </footer>
-
-        {children}
       </body>
     </html>
   );

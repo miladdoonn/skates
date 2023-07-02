@@ -74,7 +74,7 @@ export default async function CartPage() {
           </div>
           <Link
             className={styles.link}
-            href="/cart/checkout/"
+            href="checkout/"
             data-test-id="cart-checkout"
           >
             Checkout!
