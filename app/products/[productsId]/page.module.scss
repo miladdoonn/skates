@@ -1,10 +1,17 @@
 .productPage {
   display: flex;
-  flex-direction: column;
+  flex-direction: flex-start;
   align-items: center;
-  background-color: rgb(244, 234, 234);
-  justify-content: center;
+  padding: 30px;
+  justify-content: flex-start;
   padding-top: 50px;
-  min-height: 100vh;
-  margin-bottom: 50px;
+  min-height: 50vh;
+  margin-left: 500px;
+}
+
+.image {
+  transition: transform 0.3s ease-in-out;
+}
+.hoverEffect:hover {
+  transform: scale(1.03);
 }

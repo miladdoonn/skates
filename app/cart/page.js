@@ -45,7 +45,7 @@ export default async function CartPage() {
                   alt=""
                   src={`/images/${product.name}.jpg`}
                   width={120}
-                  height={250}
+                  height={150}
                 />
                 <div>Name: {product.name}</div>
                 <div>Price: {product.price}</div>

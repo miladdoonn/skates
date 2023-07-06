@@ -1,6 +1,7 @@
 import './globals.scss';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { LogoutButton } from './components/LogoutButton';
 import styles from './layout.module.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -31,6 +32,12 @@ export default function RootLayout({ children }: LayoutProps) {
                 </Link>
               </li>
               <li>
+                <Link className="link3" href="/profile">
+                  profile
+                </Link>
+              </li>
+
+              <li>
                 <Link className="link2" href="/auth/login">
                   login
                 </Link>
@@ -40,6 +47,8 @@ export default function RootLayout({ children }: LayoutProps) {
                   register
                 </Link>
               </li>
+
+              <LogoutButton />
               <li>
                 <Link className="link2" href="/cart">
                   cart

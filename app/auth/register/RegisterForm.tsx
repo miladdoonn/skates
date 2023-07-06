@@ -13,7 +13,9 @@ export default function RegisterForm() {
       method: 'POST',
       body: JSON.stringify({ username, password }),
     });
+    console.log('response from registerform.tsx:', response);
     const data: RegisterResponseBodyPost = await response.json();
+    console.log('data from registerform.tsx:', data);
     if ('error' in data) {
       setError(data.error);
       return;

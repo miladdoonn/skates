@@ -1,8 +1,61 @@
-.Image {
-  z-index: 0;
-  height: 500px;
+.mainpage {
+  background-image: url('../public/images/mural.jpg');
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  padding: 100px;
+  gap: 200px;
+  margin-top: 65px;
+}
+.div {
+  display: flex;
+  width: 100%;
 }
 
-.landingText {
-  margin-top: 50px;
+.conatiner {
+  display: grid;
+}
+
+.secondcontain {
+  grid-column: 1/7;
+  display: flex;
+  width: 100%;
+  background-color: rgb(249, 242, 247);
+  max-width: 500px;
+  padding: 30px;
+}
+.conatiner2 {
+  flex: 1 1;
+  margin: auto 0;
+  padding: 0 48px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  h2 {
+    font-size: 3rem;
+  }
+  .link {
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    width: 100px;
+    padding: 8px 16px;
+  }
+}
+.conatiner3 {
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 28px;
+}
+
+.letter {
+  color: #333;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 26px;
+  margin-bottom: 16px;
 }

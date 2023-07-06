@@ -25,15 +25,16 @@ export default async function SingleProductpage(props: Props) {
   return (
     <main className={styles.productPage}>
       <Image
+        className={`${styles.image} ${styles.hoverEffect}`}
         data-test-id="product-image"
         src={`/images/${singleproduct.name}.jpg`}
         alt="picture of the dream"
-        width={286}
-        height={571}
+        width={300}
+        height={300}
       />
       <h1>{singleproduct.name}</h1>
-      <h5>{singleproduct.description}</h5>
-      <h6 data-test-id="product-price">Price: {singleproduct.price}</h6>
+      <h5>{singleproduct.object}</h5>
+      <h5 data-test-id="product-price">Price: {singleproduct.price}€</h5>
       <p>Quantity</p>
       <div>
         <ProductQuantityForm productId={singleproduct.id} />

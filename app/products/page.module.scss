@@ -1,22 +1,52 @@
 .main {
   min-height: 100vh;
-  background-color: rgb(244, 234, 234);
+
+  color: black;
 }
 .productsContainer {
-  display: flex;
   align-items: center;
-  background-color: rgb(244, 234, 234);
   justify-content: center;
-  padding: 40px;
+  padding: 80px;
   gap: 100px;
+  display: grid;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-rows: auto;
+  margin-top: 10px;
 }
 
 .titel {
   justify-content: center;
   display: flex;
-  align-items: center;
-  color: rgb(188, 191, 17);
-  background-color: rgb(244, 234, 234);
+  font-style: italic;
+  font-variant: small-caps;
+  color: black;
+  padding-top: 30px;
+  font-weight: 500px;
+}
+.bild {
+  height: 200px;
+  width: 100%;
+}
 
-  padding-top: 140px;
+.image {
+  transition: transform 0.3s ease-in-out;
+}
+.hoverEffect:hover {
+  transform: scale(1.1);
+}
+
+.products {
+  color: black;
+  text-align: left;
+  font-style: normal;
+}
+.h1 {
+  color: black;
+  text-align: left;
+  font-style: normal;
+}
+.h2 {
+  color: black;
+  text-align: left;
+  font-style: normal;
 }

@@ -13,6 +13,7 @@ export default async function Productspage() {
   return (
     <main className={styles.main}>
       <h1 className={styles.titel}>Choose your favorite skateboard</h1>
+
       <section className={styles.productsContainer}>
         {products.map((product) => {
           return (
@@ -23,14 +24,17 @@ export default async function Productspage() {
               >
                 {' '}
                 <Image
+                  className={`${styles.image} ${styles.hoverEffect}`}
                   src={`/images/${product.name}.jpg`}
-                  width={150}
-                  height={150}
+                  width={170}
+                  height={180}
                   alt="test"
                 />
+                <br />
+                <h5 className={styles.products}> {product.object}</h5>
+                <h2 className={styles.h2}>{product.name}</h2>
+                <h1 className={styles.h1}>Price: {product.price}€</h1>
               </Link>
-              <br />
-              <Link href={`/products/${product.id}`}>{product.name}</Link>
             </div>
           );
         })}

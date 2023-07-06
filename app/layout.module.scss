@@ -1,13 +1,15 @@
 .footer {
   position: fixed;
   bottom: 0;
+  gap: 50px;
   width: 100%;
-  background-color: #4c4d52;
-  color: #000000;
-  text-align: left;
-  align-items: left;
-  justify-content: flex-start;
+  background-color: #812e597e;
+  color: white;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
   padding: 0px;
+  display: flex;
 }
 
 .navbar {
@@ -15,7 +17,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  background-color: #0909097e;
+  background-color: #812e597e;
   color: #fff;
   height: auto;
   padding-left: 30px;
