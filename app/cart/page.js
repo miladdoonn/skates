@@ -42,14 +42,18 @@ export default async function CartPage() {
             return (
               <div key={`product-${product.id}`} className={styles.productCart}>
                 <Image
+                  className={`${styles.image} ${styles.hoverEffect} `}
                   alt=""
                   src={`/images/${product.name}.jpg`}
-                  width={120}
-                  height={150}
+                  width={170}
+                  height={180}
                 />
-                <div>Name: {product.name}</div>
-                <div>Price: {product.price}</div>
-                <div>Subtotal price: {subTotalProductPrice}</div>
+                <div className={styles.div}>
+                  <h4 className={styles.products}> {product.object}</h4>
+                  <h2> {product.name}</h2>
+                  <h3>Price: {product.price}€</h3>
+                  <h3>Subtotal price: {subTotalProductPrice}€</h3>
+                </div>
 
                 {/* <div>{product.totalQuantity}</div> */}
                 <form>
@@ -70,7 +74,7 @@ export default async function CartPage() {
           })}
           <div>
             Total price:
-            <span data-test-id="cart-total">{calculateTotalPrice()}</span>
+            <span data-test-id="cart-total">{calculateTotalPrice()}€</span>
           </div>
           <Link
             className={styles.link}

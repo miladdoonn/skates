@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { addQuantity, deleteQuantity } from './actions';
+import styles from './ChangeQuantityItem.module.scss';
 
 type Props = {
   product: {
@@ -14,6 +15,7 @@ export default function ChangeQuantityItem(props: Props) {
   return (
     <div>
       <button
+        className={styles.button}
         formAction={async () => {
           router.refresh();
           await deleteQuantity(props.product);
@@ -23,6 +25,7 @@ export default function ChangeQuantityItem(props: Props) {
       </button>
       {props.product.quantity}
       <button
+        className={styles.button}
         formAction={async () => {
           router.refresh();
           await addQuantity(props.product);

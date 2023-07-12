@@ -1,6 +1,4 @@
 .main {
-  min-height: 100vh;
-
   color: black;
 }
 .productsContainer {
@@ -22,6 +20,7 @@
   color: black;
   padding-top: 30px;
   font-weight: 500px;
+  font-size: 40px;
 }
 .bild {
   height: 200px;
@@ -30,6 +29,7 @@
 
 .image {
   transition: transform 0.3s ease-in-out;
+  padding-bottom: 20px;
 }
 .hoverEffect:hover {
   transform: scale(1.1);
@@ -39,14 +39,25 @@
   color: black;
   text-align: left;
   font-style: normal;
+  font-size: 18px;
 }
 .h1 {
   color: black;
   text-align: left;
   font-style: normal;
+  font-size: 20px;
 }
 .h2 {
   color: black;
   text-align: left;
   font-style: normal;
+  font-size: 20px;
+}
+.div {
+  text-align: center;
+  width: 170px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

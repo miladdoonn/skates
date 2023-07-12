@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { createOrUpdateComment } from './actions';
+import styles from './AddCart.module.scss';
 
 // import styles from './ProductQuantityForm.module.scss';
 
@@ -15,6 +16,7 @@ export default function AddCart(props) {
   return (
     <form>
       <input
+        className={styles.button}
         data-test-id="add-cart"
         type="number"
         min="1"
@@ -31,7 +33,7 @@ export default function AddCart(props) {
           await createOrUpdateComment(props.productsId, quantity);
         }}
       >
-        Add to cart
+        warenkorb
       </button>
     </form>
   );

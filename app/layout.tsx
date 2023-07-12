@@ -1,6 +1,8 @@
 import './globals.scss';
 import { Inter } from 'next/font/google';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { getUserBySessionToken } from '../database/users';
 import { LogoutButton } from './components/LogoutButton';
 import styles from './layout.module.scss';
 
@@ -14,7 +16,14 @@ type LayoutProps = {
   children: string;
 };
 
-export default function RootLayout({ children }: LayoutProps) {
+export default async function RootLayout({ children }: LayoutProps) {
+  // 1. get the session token from the cookie
+  const cookieStore = cookies();
+  const sessionToken = cookieStore.get('sessionToken');
+
+  const user = !sessionToken?.value
+    ? undefined
+    : await getUserBySessionToken(sessionToken.value);
   return (
     <html lang="en">
       <body>
@@ -22,35 +31,51 @@ export default function RootLayout({ children }: LayoutProps) {
           <nav className={styles.navbar}>
             <ul>
               <li>
-                <Link className="link1" href="/">
+                <Link className={styles.home} href="/">
                   home
                 </Link>{' '}
               </li>
               <li>
-                <Link className="link3" href="/products">
+                <Link className={styles.products} href="/products">
                   products
                 </Link>
               </li>
               <li>
-                <Link className="link3" href="/profile">
+                <Link
+                  className={styles.profile}
+                  href={`/profile/${user?.username}`}
+                >
                   profile
                 </Link>
               </li>
 
-              <li>
-                <Link className="link2" href="/auth/login">
-                  login
-                </Link>
-              </li>
-              <li>
-                <Link className="link2" href="/auth/register">
-                  register
-                </Link>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    <Link className={styles.profile} href="/wishlist">
+                      Wishlist
+                    </Link>
+                  </li>
+                  <div className={styles.username}>{user.username}</div>
+                  <LogoutButton />
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link className={styles.li} href="/auth/register">
+                      register
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className={styles.login} href="/auth/login">
+                      login
+                    </Link>
+                  </li>
+                </>
+              )}
 
-              <LogoutButton />
               <li>
-                <Link className="link2" href="/cart">
+                <Link className={styles.cart} href="/cart">
                   cart
                 </Link>
               </li>
@@ -60,20 +85,24 @@ export default function RootLayout({ children }: LayoutProps) {
         {children}
         <footer>
           <section className={styles.footer}>
-            <div>
-              <p>Cozjy Skates</p>
-              <p> LinzerStraße 228</p>
-              <p>Vienna, Austria, 1230</p>
-              <p>Phone: +43 699 2587482</p>
+            <p>@Cozjy Skates</p>
 
+            <div>
+              <p> LinzerStraße 228</p>
+              <br />
+              <p>Vienna, Austria, 1230</p>
+            </div>
+            <div>
+              <p>Phone: +43 699 2587482</p>
+              <br />
               <p>Customer Support: +43 676 4468721</p>
             </div>
-            <br />
 
-            <br />
             <div>
-              {/* <input className="inputFooter" /> */}
-              PAYMENT METHODS:
+              <p>PAYMENT METHODS:</p>
+              <br />
+              <p>Klarna</p>
+
               <br />
             </div>
           </section>

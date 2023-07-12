@@ -1,7 +1,9 @@
 'use client';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RegisterResponseBodyPost } from '../../api/(auth)/register/route';
+import styles from './RegisterForm.module.scss';
 
 export default function RegisterForm() {
   const [username, setUsername] = useState('');
@@ -26,24 +28,46 @@ export default function RegisterForm() {
     router.refresh();
   }
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
-      <label>
-        username:
-        <input
-          value={username}
-          onChange={(event) => setUsername(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        password:
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <button onClick={async () => await register()}>sign up</button>
-      {error !== '' && <div>{error}</div>}
-    </form>
+    <div className={styles.Container}>
+      <div className={styles.form}>
+        <h3 className={styles.title}>Please, register.</h3>
+        <form
+          className={styles.login}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <div>
+            <label htmlFor="username">Username:</label>
+            <input
+              value={username}
+              onChange={(event) => setUsername(event.currentTarget.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor="username">Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.currentTarget.value)}
+            />
+          </div>
+
+          <button
+            className={styles.loginf}
+            onClick={async () => await register()}
+          >
+            sign up
+          </button>
+          {error !== '' && <div>{error}</div>}
+          <div className={styles.signup}>
+            <p>
+              Have an account yet?
+              <Link href="/auth/login" className={styles.Link}>
+                Log in here
+              </Link>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }

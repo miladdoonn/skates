@@ -1,5 +1,5 @@
 .footer {
-  position: fixed;
+  position: static;
   bottom: 0;
   gap: 50px;
   width: 100%;
@@ -8,8 +8,9 @@
   text-align: center;
   align-items: center;
   justify-content: space-around;
-  padding: 0px;
+  padding: 10px;
   display: flex;
+  margin-top: 90px;
 }
 
 .navbar {
@@ -40,4 +41,37 @@
       }
     }
   }
+}
+
+.li {
+  align-items: right;
+  padding-left: 400px;
+  font-size: 30px;
+}
+
+.login {
+  font-size: 30px;
+}
+.cart {
+  padding-left: 20px;
+  font-size: 30px;
+}
+.home {
+  padding-left: 0px;
+  font-size: 30px;
+  margin-left: 0px;
+}
+.products {
+  font-size: 30px;
+  margin-left: 100px;
+}
+.profile {
+  font-size: 30px;
+  margin-left: 100px;
+}
+.username {
+  padding-left: 20px;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 500px;
 }

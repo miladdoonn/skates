@@ -24,16 +24,18 @@ export default async function Productspage() {
               >
                 {' '}
                 <Image
-                  className={`${styles.image} ${styles.hoverEffect}`}
+                  className={`${styles.image} ${styles.hoverEffect} `}
                   src={`/images/${product.name}.jpg`}
-                  width={170}
-                  height={180}
+                  width={200}
+                  height={220}
                   alt="test"
                 />
                 <br />
-                <h5 className={styles.products}> {product.object}</h5>
-                <h2 className={styles.h2}>{product.name}</h2>
-                <h1 className={styles.h1}>Price: {product.price}€</h1>
+                <div className={styles.div}>
+                  <h2 className={styles.products}> {product.object}</h2>
+                  <p className={styles.h2}>{product.name}</p>
+                  <p className={styles.h1}>Price: {product.price}€</p>
+                </div>
               </Link>
             </div>
           );

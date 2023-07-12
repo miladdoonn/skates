@@ -1,9 +1,9 @@
-.loginContainer {
+.Container {
   display: flex;
   flex-direction: column;
 
   .form {
-    height: 450px;
+    height: 400px;
     width: 600px;
     background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
@@ -13,9 +13,9 @@
     border-radius: 10px;
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 10px rgba(8, 7, 16, 0.6);
-    padding: 35px 35px;
+    padding: 40px 35px;
 
-    .loginForm {
+    .login {
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -35,7 +35,7 @@
         }
       }
     }
-    .loginSubmit {
+    .loginf {
       height: 40px;
       width: 100%;
       border: 1px solid;
@@ -63,7 +63,7 @@
   }
 }
 
-.signupContainer {
+.signup {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,7 +71,7 @@
   font-size: 0.8rem;
   padding-top: 5px;
 
-  .loginLink {
+  .Link {
     background-color: transparent;
     border: none;
     padding-left: 8px;
@@ -87,14 +87,4 @@
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   margin-bottom: 15px;
-}
-
-.showPasswordButton {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  top: 45%;
-  right: 10%;
-  transform: translate(0%, -50%);
-  cursor: pointer;
 }

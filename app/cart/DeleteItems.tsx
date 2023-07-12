@@ -1,6 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { deleteItem } from './actions';
+import styles from './DeleteItems.module.scss';
 
 type Props = {
   product: number;
@@ -12,6 +13,7 @@ export default function DeleteItems(props: Props) {
   return (
     <div>
       <button
+        className={styles.button}
         data-test-id="cart-product-remove-<product id>"
         formAction={async () => {
           router.refresh();

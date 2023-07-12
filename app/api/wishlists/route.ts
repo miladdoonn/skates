@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { submitWishlist, WishlistSubmit } from '../../../database/wishlists';
 
-type Error = {
+export type Error = {
   error: string;
 };
 
@@ -14,7 +14,7 @@ export type WishlistResponseBodyPost =
 
 const wishlistSchema = z.object({
   userId: z.number(),
-  artworkId: z.number(),
+  productId: z.number(),
 });
 
 export async function POST(
@@ -41,8 +41,10 @@ export async function POST(
   // query the database to get all the animals
   const wishlist = await submitWishlist(
     result.data.userId,
-    result.data.artworkId,
+    result.data.productId,
   );
+
+  console.log('bis hier hin gehts noch');
 
   if (!wishlist) {
     // zod send you details about the error

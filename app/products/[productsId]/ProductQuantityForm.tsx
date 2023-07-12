@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { updateQuantity } from './actions';
+import styles from './ProductQuantityForm.module.scss';
 
 // import styles from './ProductQuantityForm.module.scss';
 
@@ -17,6 +18,7 @@ export default function ProductQuantityForm(props: Props) {
   return (
     <form>
       <input
+        className={styles.input}
         data-test-id="product-quantity"
         type="number"
         min="1"
@@ -27,6 +29,7 @@ export default function ProductQuantityForm(props: Props) {
       />
       <br />
       <button
+        className={styles.button}
         data-test-id="product-add-to-cart"
         formAction={async () => {
           router.refresh();

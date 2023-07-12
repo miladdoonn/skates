@@ -1,12 +1,22 @@
 .productPage {
+  box-sizing: border-box;
   display: flex;
   flex-direction: flex-start;
   align-items: center;
   padding: 30px;
   justify-content: flex-start;
   padding-top: 50px;
-  min-height: 50vh;
-  margin-left: 500px;
+  min-height: 70vh;
+  margin-left: 650px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #333;
+  letter-spacing: normal;
+  word-spacing: normal;
+  font-size: 13px;
+  font-size: 1.08333rem;
+  line-height: 1.538;
+  margin-top: 150px;
 }
 
 .image {
@@ -14,4 +24,12 @@
 }
 .hoverEffect:hover {
   transform: scale(1.03);
+}
+
+.h4 {
+  font-size: 20px;
+}
+
+.h5 {
+  font-size: 20px;
 }
