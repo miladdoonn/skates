@@ -19,7 +19,7 @@ export default function DeleteWishlists(props: Props) {
     <div>
       <button
         onClick={async () => {
-          const response = await fetch(`/api/wishlists/${props.wishlists.id}`, {
+          const response = await fetch(`/api/wishlists/${props.wishlists}`, {
             method: 'DELETE',
           });
 

@@ -1,5 +1,4 @@
 import { cache } from 'react';
-import { object } from 'zod';
 import { Wishlist } from '../migrations/1689002560-createTableWishList';
 import { sql } from './connect';
 
@@ -61,7 +60,8 @@ export const getWishlistByUser = cache(async (userId: number) => {
   console.log('database', userId);
   const wishlistWithUser = await sql<WishlistByUser[]>`
     SELECT
-      products.*
+      products.*,
+      wishlists.id AS wishlist
     FROM
       wishlists
     INNER JOIN
