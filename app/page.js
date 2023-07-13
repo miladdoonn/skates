@@ -1,6 +1,6 @@
 import './globals.scss';
 import Link from 'next/link';
-import styles from './page.module.scss';
+import styles from './page.moodule.scss';
 
 export default function Home() {
   return (
