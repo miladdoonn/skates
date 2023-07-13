@@ -104,7 +104,6 @@ export async function POST(
       user: {
         username: userWithPasswordHash.username,
         id: userWithPasswordHash.id,
-        userWithPasswordHash,
       },
     },
     {

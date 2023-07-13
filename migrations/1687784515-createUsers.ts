@@ -3,7 +3,6 @@ import { Sql } from 'postgres';
 export type User = {
   id: number;
   username: string;
-  password_hash: string;
   // Omit passwordHash for security
 };
 

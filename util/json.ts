@@ -1,9 +1,9 @@
 import sjson from 'secure-json-parse';
-import { CookieCommentItem } from '../app/products/[productsId]/page';
+import { ProductQuantities } from '../app/products/[productsId]/actions';
 
 export function parseJson(
   stringifiedJson: string,
-): undefined | CookieCommentItem[] {
+): undefined | ProductQuantities[] {
   if (!stringifiedJson) return undefined;
 
   try {
