@@ -40,6 +40,7 @@ export default async function SingleProductpage(props: Props) {
     notFound();
   }
   const user =
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     sessionTokenCookie &&
     (await getUserBySessionToken(sessionTokenCookie.value));
   // console.log('user', user);

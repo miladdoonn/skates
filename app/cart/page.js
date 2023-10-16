@@ -72,7 +72,7 @@ export default async function CartPage() {
               </div>
             );
           })}
-          <div>
+          <div className={styles.price}>
             Total price:
             <span data-test-id="cart-total">{calculateTotalPrice()}€</span>
           </div>
